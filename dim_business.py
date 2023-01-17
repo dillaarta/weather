@@ -69,7 +69,7 @@ default_args = {
 }
 
 with DAG(
-        dag_id='yelp_academic_dataset_checkin',
+        dag_id='dim_business',
         default_args = default_args,
         schedule_interval='5 */8 * * *',
         start_date=pendulum.datetime(2021, 1, 1, tz='Asia/Bangkok'), 
@@ -84,7 +84,7 @@ with DAG(
         trigger_rule = "all_done"
     )
 
-    with TaskGroup("dataset_checkin") as extract_group:
+    with TaskGroup("dim_business") as extract_group:
         create_table = PostgresOperator(      
                 task_id = "create_table_task",
                 postgres_conn_id = "POSTGRES",
