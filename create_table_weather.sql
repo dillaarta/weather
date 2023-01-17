@@ -1,0 +1,58 @@
+CREATE TABLE IF NOT EXISTS ods.dataset_weather (
+station TEXT, 
+name TEXT, 
+latitude TEXT, 
+longitude TEXT,
+elevation TEXT, 
+date TEXT, 
+awnd TEXT,
+awnd_attributes TEXT, 
+dapr TEXT, 
+dapr_attributes TEXT, 
+mdpr TEXT, 
+mdpr_attributes TEXT,
+pgtm TEXT, 
+pgtm_attributes TEXT, 
+prcp TEXT,
+prcp_attributes TEXT, 
+snow TEXT,
+snow_attributes TEXT, 
+snwd TEXT, 
+snwd_attributes TEXT, 
+tavg TEXT, 
+tavg_attributes TEXT,
+tmax TEXT, 
+tmax_attributes TEXT, 
+tmin TEXT, 
+tmin_attributes TEXT, 
+tobs TEXT,
+tobs_attributes TEXT, 
+wdf2 TEXT, 
+wdf2_attributes TEXT, 
+wdf5 TEXT, 
+wdf5_attributes TEXT,
+wesd TEXT, 
+wesd_attributes TEXT, 
+wesf TEXT, 
+wesf_attributes TEXT, 
+wsf2 TEXT,
+wsf2_attributes TEXT, 
+wsf5 TEXT, 
+wsf5_attributes TEXT, 
+wt01 TEXT, 
+wt01_attributes TEXT,
+wt02 TEXT, 
+wt02_attributes TEXT, 
+wt03 TEXT, 
+wt03_attributes TEXT, 
+wt08 TEXT,
+wt08_attributes TEXT,
+data_updated_at timestamp without time zone
+-- PRIMARY KEY (station)
+);
+
+CREATE INDEX IF NOT EXISTS dataset_weather_station
+    ON ods.dataset_weather USING btree
+    (station ASC NULLS LAST)
+    TABLESPACE pg_default;
+
